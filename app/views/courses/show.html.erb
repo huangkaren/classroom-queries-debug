@@ -22,7 +22,7 @@
       Title
     </label>
 
-    <input type="text" id="title_box" name="query_title">
+    <input type="text" id="title_box" name="query_title" value = <%= @course.title%> >
   </div>
 
   <div>
@@ -42,7 +42,7 @@
       <% Department.order({ :name => :asc }).each do |a_department| %>
         <% if a_department.id == @course.department_id %>
           <option value="<%= a_department.id %>" selected>
-            <%= a_department.name %>
+            <a href = "/departments/<%= @department_id %>"><%= a_department.name %></a>
           </option>
         <% else %>
           <option value="<%= a_department.id %>">
