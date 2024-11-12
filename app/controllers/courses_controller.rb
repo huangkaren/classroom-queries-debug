@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
     course = Course.new
     course.title = params.fetch("query_title")
     course.term_offered = params.fetch("query_term")
-    # course.id = params.fetch("query_course_id")
+    course.department_id = params.fetch("query_department_id")
 
     if course.valid?
       course.save

@@ -22,14 +22,14 @@
   </div>
 
   <div>
-    <label for="course_id_box">
-      Course
+    <label for="department_id_box">
+      Department
     </label>
 
-    <select id="course_id_box" name="query_course_id">
-      <% Course.order({ :title => :asc }).each do |a_course| %>
-        <option value="<%= a_course.id %>">
-          <%= a_course.title %>
+    <select id="department_id_box" name="query_department_id">
+      <% Department.order({ :name => :asc }).each do |a_department| %>
+        <option value="<%= a_department.id %>">
+          <%= a_department.name %>
         </option>
       <% end %>
     </select>
