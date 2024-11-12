@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   post("/insert_department", { :controller => "departments", :action => "create" })
 
-  get("/departments", { :controller => "departments", :action => "index" })
+  # get("/departments", { :controller => "departments", :action => "index" })
   
-  post("/modify_department/:path_id", { :controller => "departments", :action => "update" })
+  post("/modify_department/:the_id", { :controller => "departments", :action => "update" })
 
-  get("/delete_department/:path_id", { :controller => "departments", :action => "destroy" })
+  get("/delete_department/:an_id", { :controller => "departments", :action => "destroy" })
 
   #------------------------------
   # Course routes
@@ -25,11 +25,11 @@ Rails.application.routes.draw do
 
   post("/insert_course", { :controller => "courses", :action => "create" })
 
-  get("/courses", { :controller => "courses_controller", :action => "index" })
+  # get("/courses", { :controller => "courses_controller", :action => "index" })
   
-  post("/modify_course/:path_id", { :controller => "courses", :action => "update" })
+  post("/modify_course/:the_id", { :controller => "courses", :action => "update" })
 
-  get("/delete_course/:path_id", { :controller => "courses", :action => "destroy" })
+  get("/delete_course/:an_id", { :controller => "courses", :action => "destroy" })
 
   #------------------------------
   # Student routes
@@ -40,11 +40,11 @@ Rails.application.routes.draw do
 
   post("/insert_student", { :controller => "students", :action => "create" })
 
-  get("/students", { :controller => "students", :action => "index" })
+  # get("/students", { :controller => "students", :action => "index" })
   
-  post("/modify_student/:path_id", { :controller => "students", :action => "update" })
+  post("/modify_student/:the_id", { :controller => "students", :action => "update" })
 
-  get("/delete_student/:path_id", { :controller => "students", :action => "destroy" })
+  get("/delete_student/:an_id", { :controller => "students", :action => "destroy" })
 
   #------------------------------
 

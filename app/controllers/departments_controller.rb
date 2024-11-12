@@ -7,17 +7,19 @@ class DepartmentsController < ApplicationController
 
   def show
     the_id = params.fetch("path_id")
-    @department = Department.where({:id => the_id })
+    matching_departments = Department.where({:id => the_id })
+    @department = matching_departments.at(0)
 
     render({ :template => "departments/show" })
   end
 
   def create
-    @department = Department.new
-    @department.name = params.fetch("query_name")
+    department = Department.new
+    department.id = params.fetch("query_id")
+    department.name = params.fetch("query_name")
 
-    if @department.valid?
-      @department.save
+    if department.valid?
+      department.save
       redirect_to("/departments", { :notice => "Department created successfully." })
     else
       redirect_to("/departments", { :notice => "Department failed to create successfully." })
@@ -26,12 +28,13 @@ class DepartmentsController < ApplicationController
 
   def update
     the_id = params.fetch("path_id")
-    @department = Department.where({ :id => the_id }).at(0)
+    department = Department.where({ :id => the_id }).at(0)
 
-    @department.name = params.fetch("query_name")
+    department.id = params.fetch("query_id")
+    department.name = params.fetch("query_name")
 
-    if @department.valid?
-      @department.save
+    if department.valid?
+      department.save
       redirect_to("/departments/#{@department.id}", { :notice => "Department updated successfully."} )
     else
       redirect_to("/departments/#{@department.id}", { :alert => "Department failed to update successfully." })
@@ -39,10 +42,11 @@ class DepartmentsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    @department = Department.where({ :id => the_id }).at(0)
-
-    @department.destroy
+    the_id = params.fetch("an_id")
+    matching_records = Department.where({ :id => the_id })
+    department = matching_records.at(0)
+  
+    department.destroy
 
     redirect_to("/departments", { :notice => "Department deleted successfully."} )
   end
